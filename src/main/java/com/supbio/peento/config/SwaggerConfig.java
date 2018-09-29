@@ -66,7 +66,7 @@ public class SwaggerConfig {
                 .pathMapping("/")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.supbio.peento.controller.manage"))
-                .paths(Predicates.or(PathSelectors.regex("/api/peento/manage/.*")))//过滤的接口
+                .paths(Predicates.or(PathSelectors.regex("/api/manage/.*")))//过滤的接口
                 .build()
                 .globalOperationParameters(webParameter).apiInfo(apiInfo());
     }

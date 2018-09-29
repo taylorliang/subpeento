@@ -52,7 +52,7 @@ public class AliSendMessage {
         SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
         if(sendSmsResponse.getCode() != null && sendSmsResponse.getCode().equals("OK")) {
             //请求成功
-            return "短信发送成功！";
+            return "短信发送成功";
         }
         return "短信发送失败！" + sendSmsResponse.getCode();
     }

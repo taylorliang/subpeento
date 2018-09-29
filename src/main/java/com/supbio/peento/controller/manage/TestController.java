@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Api(value = "TestController", description = "测试-相关API")
 @RestController
-@RequestMapping("/api/peento/manage/login")
+@RequestMapping("/api/manage")
 public class TestController {
 
     private Logger logger = LoggerFactory.getLogger(TestController.class);
