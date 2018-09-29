@@ -38,12 +38,7 @@ public class TestController {
     @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     public String saveUser(UserParam param){
         logger.info("/api/peento/manage/saveUser:{}", param);
-        UserDTO userDTO = new UserDTO();
-        userDTO.setUserName(param.getUserName());
-        userDTO.setAge(param.getAge());
-        userDTO.setSex(param.getSex());
-        userDTO.setCreateTime(new Date());
-        userDTO.setUpdateTime(new Date());
+
 
         return null;
     }
