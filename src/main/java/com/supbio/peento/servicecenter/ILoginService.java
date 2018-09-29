@@ -6,4 +6,5 @@ public interface ILoginService {
 
     LoginDTO findLoginByPhone(String account);
 
+    void updateLoginByPhone(String phone, String password);
 }

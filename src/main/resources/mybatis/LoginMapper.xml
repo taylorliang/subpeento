@@ -16,6 +16,15 @@
             phone = #{phone}
 
     </select>
+    
+    <update id="updateLoginByPhone">
+
+        UPDATE t_login
+        SET password = #{password}
+        WHERE
+            phone = #{phone}
+
+    </update>
 
 
 </mapper>

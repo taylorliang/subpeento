@@ -17,4 +17,9 @@ public class LoginServiceImpl implements ILoginService {
         return loginMapper.findLoginByPhone(account);
     }
 
+    @Override
+    public void updateLoginByPhone(String phone, String password) {
+        loginMapper.updateLoginByPhone(phone, password);
+    }
+
 }

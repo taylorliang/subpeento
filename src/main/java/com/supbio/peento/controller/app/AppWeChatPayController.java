@@ -1,6 +1,5 @@
 package com.supbio.peento.controller.app;
 
-import com.supbio.peento.controller.manage.TestController;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/peento/app/weChatPay")
 public class AppWeChatPayController {
 
-    private Logger logger = LoggerFactory.getLogger(TestController.class);
+    private Logger logger = LoggerFactory.getLogger(AppWeChatPayController.class);
 
     // 微信统一下单接口路径
     private static final String UNIFORMORDER = "https://api.mch.weixin.qq.com/pay/unifiedorder";

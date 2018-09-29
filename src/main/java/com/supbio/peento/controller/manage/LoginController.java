@@ -2,7 +2,6 @@ package com.supbio.peento.controller.manage;
 
 import com.aliyuncs.exceptions.ClientException;
 import com.supbio.peento.models.model.LoginDTO;
-import com.supbio.peento.models.params.UserParam;
 import com.supbio.peento.models.params.manage.LoginParam;
 import com.supbio.peento.servicecenter.ILoginService;
 import com.supbio.peento.servicecenter.sms.AliSendMessage;
@@ -81,6 +80,10 @@ public class LoginController extends BaseManageController {
         String sessionCode = (String)session.getAttribute("code");
         if (code.equals(sessionCode)){
             if (password.equals(confirmPassword)){
+
+                String passwordByMD5 = MD5Util.createPasswordByMD5(password);
+                loginService.updateLoginByPhone(phone, passwordByMD5);
+
                 session.removeAttribute("code");
                 return "成功重置密码";
             }
