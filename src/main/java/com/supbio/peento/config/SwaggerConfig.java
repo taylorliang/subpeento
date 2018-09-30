@@ -45,10 +45,21 @@ public class SwaggerConfig {
         webParameter.add(appPar);
     }
 
-    private ApiInfo apiInfo(){
+    private ApiInfo manageApiInfo(){
         return new ApiInfoBuilder()
                 .title("supbio peento manage API")
-                .description("supbio peento manage API")
+                .description("manage API")
+                .license("Apache 2.0")
+                .licenseUrl("http:/www.apache.org/licenses/LICENSE-2.0.html")
+                .termsOfServiceUrl("")
+                .version("1.0.0")
+                .contact(new Contact("peento","",""))
+                .build();
+    }
+    private ApiInfo appApiInfo(){
+        return new ApiInfoBuilder()
+                .title("supbio peento Android and IOS API")
+                .description("Android and IOS API")
                 .license("Apache 2.0")
                 .licenseUrl("http:/www.apache.org/licenses/LICENSE-2.0.html")
                 .termsOfServiceUrl("")
@@ -68,7 +79,21 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("com.supbio.peento.controller.manage"))
                 .paths(Predicates.or(PathSelectors.regex("/api/manage/.*")))//过滤的接口
                 .build()
-                .globalOperationParameters(webParameter).apiInfo(apiInfo());
+                .globalOperationParameters(webParameter).apiInfo(manageApiInfo());
+    }
+
+    @Bean
+    public Docket appApi(){
+        return new Docket(DocumentationType.SWAGGER_2).enable(swaggerShow).groupName("appApi")
+                .genericModelSubstitutes(DeferredResult.class)
+                .useDefaultResponseMessages(false)
+                .forCodeGeneration(true)
+                .pathMapping("/")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.supbio.peento.controller.app"))
+                .paths(Predicates.or(PathSelectors.regex("/api/app/.*")))//过滤的接口
+                .build()
+                .globalOperationParameters(webParameter).apiInfo(appApiInfo());
     }
 
 }

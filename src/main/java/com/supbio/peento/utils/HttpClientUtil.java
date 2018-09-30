@@ -178,7 +178,6 @@ public class HttpClientUtil {
             String str = null;
             StringBuffer buffer = new StringBuffer();
             while ((str = bufferedReader.readLine()) != null) {
-            // System.out.println("bf != null");                
                 buffer.append(str);
             }
             // 释放资源                

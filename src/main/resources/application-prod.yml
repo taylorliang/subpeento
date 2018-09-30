@@ -22,7 +22,7 @@ swagger:
 pay:
   weChat:
     appSecret: 8ef5787dee3fd7a4eb802fc13632f8a1 #应用密钥
-    appId: wx6e12223a6bd82ca9 #应用APPID
+    appId: wx6e12223a6bd82ca9 #应用appId
     mchId: #微信支付分配的商户号
     body: 蟠桃医生-购买服务 #商品描述
     notifyUrl: http://localhost:8080/api/app/weChatPay/notifyCallback #微信支付异步通知回调地址
