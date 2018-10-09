@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.supbio.peento.mapper.DoctorManageMapper">
+
+    <select id="findAllDoctor" resultType="com.supbio.peento.models.model.DoctorDTO">
+
+        SELECT
+            id doctorId,
+            head_url headUrl,
+            user_name userName,
+            accept_status acceptStatus,
+            push_status pushStatus,
+            doctor_title doctorTitle,
+            ID_number IDNumber,
+            phone,
+            sex,
+            certification_status `status`,
+            hospital,
+            title,
+            office,
+            checker,
+            submit_time submitTime
+        FROM
+            t_doctor_information
+        <where>
+            1=1
+            <if test="userName!=null and userName!=''">
+              AND user_name = #{userName}
+            </if>
+            <if test="office!=null and office!=''">
+                AND office = #{office}
+            </if>
+            <if test="title!=null and title!=''">
+                AND title = #{title}
+            </if>
+            <if test="submitStartTime!=null and submitStartTime!=''">
+                <![CDATA[ and DATE_FORMAT(submit_time,'%Y-%m-%d %H:%i:%s') >= #{submitStartTime} ]]>
+            </if>
+            <if test="submitEndTime!=null and submitEndTime!=''">
+                <![CDATA[ and DATE_FORMAT(submit_time,'%Y-%m-%d %H:%i:%s') <= #{submitEndTime} ]]>
+            </if>
+            <!--<if test="number!=null and number!=''">-->
+                <!--AND title = #{number}-->
+            <!--</if>-->
+            <if test="status!=4">
+                AND certification_status = #{status}
+            </if>
+        </where>
+        ORDER BY
+            submit_time DESC
+
+    </select>
+
+    <update id="updateDoctor">
+
+        UPDATE t_doctor_information
+        <set>
+            update_time = NOW(),
+            <if test="acceptStatus!=null and acceptStatus!=''">
+                accept_status = #{acceptStatus},
+            </if>
+            <if test="pushStatus!=null and pushStatus!=''">
+                push_status = #{pushStatus},
+            </if>
+            <if test="doctorTitle!=null and doctorTitle!=''">
+                doctor_title = #{doctorTitle}
+            </if>
+        </set>
+        WHERE
+            id = #{id}
+
+    </update>
+
+</mapper>
