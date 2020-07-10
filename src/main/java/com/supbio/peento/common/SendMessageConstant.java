@@ -11,10 +11,10 @@ public class SendMessageConstant {
     public static final String DOMAIN = "dysmsapi.aliyuncs.com";
 
     //阿里云个人的accessKeyId
-    public static final String ACCESS_KEY_ID = "LTAIvUg5DONQpYeM";
+    public static final String ACCESS_KEY_ID = "xxxxxxx";
 
     //阿里云个人的accessKeySecret
-    public static final String ACCESS_KEY_SECRET = "AbGMSKh0e9tN7ai7FSbOecFg8kZSIP";
+    public static final String ACCESS_KEY_SECRET = "xxxxxxxxxxxx";
 
     //阿里云短信签名
     public static final String MESSAGE_SIGNATURES = "蟠桃医生";
